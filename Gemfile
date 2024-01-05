@@ -70,3 +70,8 @@ group :test do
   gem "selenium-webdriver"
   gem "webdrivers"
 end
+<<<<<<< Updated upstream
+gem 'devise'
+=======
+gem 'devise'
+>>>>>>> Stashed changes
