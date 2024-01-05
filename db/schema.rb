@@ -42,17 +42,16 @@ ActiveRecord::Schema[7.0].define(version: 2024_01_04_122101) do
   create_table "prototypes", charset: "utf8", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-
     t.string "title"
     t.text "catch_copy"
     t.text "concept"
-
-    t.string "name"
-    t.string "text"
-
   end
 
   create_table "users", charset: "utf8", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "profile", null: false
+    t.string "affiliation", null: false
+    t.string "position", null: false
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
