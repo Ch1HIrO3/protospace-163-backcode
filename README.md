@@ -5,10 +5,10 @@
 | ------------------ | ---------- | -------------------------- |
 | email              | string     | null: false, unique: true  |
 | encrypted_password | string     | null: false                |
-| name               | string     | null: false                |
-| profile            | text       | null: false                |
-| occupation         | text       | null: false                |
-| position           | text       | null: false                |
+| name               | string     | null: false                |ユーザー名
+| profile            | text       | null: false                |プロフィール
+| occupation         | text       | null: false                |所属
+| position           | text       | null: false                |役職
 
 ### Association
 - has_many :prototype
