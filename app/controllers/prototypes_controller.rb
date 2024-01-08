@@ -1,13 +1,16 @@
 class PrototypesController < ApplicationController
+  before_action :authenticate_user!, only: [:new, :create]
+
   def index
   end
 
   def new
     @prototype = Prototype.new
   end
-
+  
   def create
-    if current_user.prototypes.create(prototype_params)
+    @prototype = Prototype.new(prototype_params)
+    if @prototype.save
       redirect_to root_path
     else
       render :new, status: :unprocessable_entity
