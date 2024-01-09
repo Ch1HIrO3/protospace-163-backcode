@@ -1,32 +1,32 @@
 <main class="main">
   <div class="inner">
     <div class="prototype__wrapper">
-      <p class="prototype__hedding">
-        <%= "プロトタイプのタイトル"%>
+      <p class="prototype__heading"> <!-- 修正: タイトルのクラス名を修正 -->
+        <%= @prototype.title %>
       </p>
-      <%= link_to "by プロトタイプの投稿者", root_path, class: :prototype__user %>
+      <%= link_to "by #{@prototype.user.name}", user_path(@prototype.user), class: :prototype__user %> <!-- 修正: ユーザー名を表示し、リンク先を修正 -->
       <%# プロトタイプの投稿者とログインしているユーザーが同じであれば以下を表示する %>
-    <% if user_signed_in? && current_user.id == @prototype.user_id %>
+      <% if user_signed_in? && current_user.id == @prototype.user_id %>
         <div class="prototype__manage">
-          <%= link_to "編集する", edit_prototype_path(prototype.id), class: :prototype__btn %>
-          <%= link_to "削除する", prototype_path(prototype.id), data: { turbo_method: :delete }, class: :prototype__btn %>
+          <%= link_to "編集する", edit_prototype_path(@prototype), class: :prototype__btn %> <!-- 修正: 編集のリンク先を修正 -->
+          <%= link_to "削除する", prototype_path(@prototype), method: :delete, data: { turbo_confirm: "Are you sure?" }, class: :prototype__btn %> <!-- 修正: 削除のリンク先や確認メッセージを修正 -->
         </div>
-    <% end %>
-      <%# // プロトタイプの投稿者とログインしているユーザーが同じであれば上記を表示する %>
+      <% end %>
+      <%# プロトタイプの投稿者とログインしているユーザーが同じであれば上記を表示する %>
       <div class="prototype__image">
-        <%= image_tag "プロトタイプの画像" %>
+        <%= image_tag @prototype.image %>
       </div>
       <div class="prototype__body">
         <div class="prototype__detail">
           <p class="detail__title">キャッチコピー</p>
           <p class="detail__message">
-            <%= "プロトタイプのキャッチコピー" %>
+            <%= @prototype.catch_copy %>
           </p>
         </div>
         <div class="prototype__detail">
           <p class="detail__title">コンセプト</p>
           <p class="detail__message">
-            <%= "プロトタイプのコンセプト" %>
+            <%= @prototype.concept %>
           </p>
         </div>
       </div>
