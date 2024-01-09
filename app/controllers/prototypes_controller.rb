@@ -33,6 +33,7 @@ class PrototypesController < ApplicationController
       redirect_to show_prototype_path(@prototype)
     else
       render :edit, status: :unprocessable_entity
+    end
   end
 
   private
