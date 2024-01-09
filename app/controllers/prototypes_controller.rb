@@ -2,6 +2,7 @@ class PrototypesController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create]
 
   def index
+    @prototypes = Prototype.all
   end
 
   def new
