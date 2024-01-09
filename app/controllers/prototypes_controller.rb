@@ -1,4 +1,6 @@
 class PrototypesController < ApplicationController
+  before_action :set_tweet, only: [:show]
+  
   def index
   end
 
