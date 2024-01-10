@@ -9,7 +9,8 @@
       <% if user_signed_in? && current_user.id == @prototype.user_id %>
         <div class="prototype__manage">
           <%= link_to "編集する", edit_prototype_path(@prototype), class: :prototype__btn %> <!-- 修正: 編集のリンク先を修正 -->
-          <%= link_to "削除する", prototype_path(@prototype), method: :delete, data: { turbo_confirm: "Are you sure?" }, class: :prototype__btn %> <!-- 修正: 削除のリンク先や確認メッセージを修正 -->
+          <%= link_to "削除する", prototype_path(@prototype), data: { turbo_method: :delete }, class: :prototype__btn %>
+
         </div>
       <% end %>
       <%# プロトタイプの投稿者とログインしているユーザーが同じであれば上記を表示する %>
